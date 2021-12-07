@@ -2,13 +2,15 @@
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
 const database = 'opticadb';
-const collection = 'proveidor1';
+const collection1 = 'proveidor1';
+const collection2 = 'proveidor2';
+const collection3 = 'proveidor3';
 
 // Create a new database.
 use(database);
 
 // Create a new collection.
-db.createCollection(collection);
+db.createCollection(collection1);
 
 // The prototype form to create a regular collection:
 /* db.createCollection( <name>,
