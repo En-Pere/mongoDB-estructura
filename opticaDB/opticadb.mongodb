@@ -158,7 +158,7 @@ db.ventas.insertMany([
     'numero_vendedor': objectId('61b22b2f291e79eb331f7b98'),
   },
 ]);
-
+  
 
 
 
