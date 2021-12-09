@@ -1,45 +1,26 @@
-// MongoDB Playground
-// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
-const database = 'opticadb';
-const collection1 = 'proveidor1';
-const collection2 = 'proveidor2';
-const collection3 = 'proveidor3';
+use('opticaDB');
 
-// Create a new database.
-use(database);
+db.proveidor.drop();
 
 // Create a new collection.
-db.createCollection(collection1);
-
-// The prototype form to create a regular collection:
-/* db.createCollection( <name>,
+db.proveidor.insertMany([
   {
-    capped: <boolean>,
-    autoIndexId: <boolean>,
-    size: <number>,
-    max: <number>,
-    storageEngine: <document>,
-    validator: <document>,
-    validationLevel: <string>,
-    validationAction: <string>,
-    indexOptionDefaults: <document>,
-    viewOn: <string>,
-    pipeline: <pipeline>,
-    collation: <document>,
-    writeConcern: <document>
-    
-  }
-) */
-
-// The prototype form to create a time-series collection:
-/* db.createCollection( <name>,
+    'id': 1,
+    'nom': 'proveidor1',
+    'adreça': 'C/aragó 321',
+    'telèfon': 933338382,
+  },
   {
-    timeseries: {
-      timeField: <string>,
-      metaField: <string>,
-      granularity: <string>
-    },
-    expireAfterSeconds: <number>
+    'id': 2,
+    'nom': 'proveidor2',
+    'adreça': 'C/valencia 321',
+    'telèfon': 933338382,
+  },
+   {
+    'id': 3,
+    'nom': 'proveidor3',
+    'adreça': 'C/mallorca 21',
+    'telèfon': 933338382,
   }
-) */
+])
