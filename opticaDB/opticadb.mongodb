@@ -139,26 +139,24 @@ db.ventas.insertMany([
   {
     'numero_factura': 20211201,
     'fecha_factura': new Date(2021,08,13),
-    'articulo_vendido': objectId("61b22b2f291e79eb331f7b90"),
-    'numero_cliente': objetId('61b22b2f291e79eb331f7b93'),
-    'numero_vendedor': objectId('61b22b2f291e79eb331f7b96'),
+    'articulo_vendido': ObjectId("61b22b2f291e79eb331f7b90"),
+    'numero_cliente': ObjectId("61b22b2f291e79eb331f7b93"),
+    'numero_vendedor': ObjectId("61b22b2f291e79eb331f7b96"),
   },
   {
     'numero_factura': 20211202,
     'fecha_factura': new Date(2021,06,11),
-    'articulo_vendido': objectId("61b22b2f291e79eb331f7b91"),
-    'numero_cliente': objetId('61b22b2f291e79eb331f7b94'),
-    'numero_vendedor': objectId('61b22b2f291e79eb331f7b97'),
+    'articulo_vendido': ObjectId("61b22b2f291e79eb331f7b91"),
+    'numero_cliente': ObjectId("61b22b2f291e79eb331f7b94"),
+    'numero_vendedor': ObjectId("61b22b2f291e79eb331f7b97"),
   },
   {
     'numero_factura': 20211203,
     'fecha_factura': new Date(2021,01,01),
-    'articulo_vendido': objectId("61b22b2f291e79eb331f7b92"),
-    'numero_cliente': objetId('61b22b2f291e79eb331f7b95'),
-    'numero_vendedor': objectId('61b22b2f291e79eb331f7b98'),
+    'articulo_vendido': ObjectId("61b22b2f291e79eb331f7b92"),
+    'numero_cliente': ObjectId("61b22b2f291e79eb331f7b95"),
+    'numero_vendedor': ObjectId("61b22b2f291e79eb331f7b98"),
   },
 ]);
-  
 
-
-
+db.clientes.find({});
