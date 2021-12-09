@@ -1,10 +1,9 @@
 //seleccion de la DB
 db.opticaDB.drop();
-
 use('opticaDB');
+
 //eliminamos tabla para crearla de nuevo
 db.proveidor.drop();
-// Create a new collection (tables)
 db.proveidor.insertMany([
   {
     'nom': 'proveidor1',
@@ -54,7 +53,6 @@ db.proveidor.insertMany([
 ]);
 
 db.gafas.drop();
-// Create a new collection (tables)
 db.gafas.insertMany([
   {
     'marca': 'ryban',
@@ -93,6 +91,75 @@ db.gafas.insertMany([
     'precio': 199.90,
   },
 ]);
+
+db.clientes.drop();
+db.clientes.insertMany([
+  {
+    'nombre': 'Antonio',
+    'calle': 'Av del Carmen 13',
+    'telefono': 932238388,
+    'mail': 'antonio@gmail.com',
+    'fecha_registro': new Date(2021,10,01),
+  },
+  {
+    'nombre': 'Maria',
+    'calle': 'Calle castillejos 13',
+    'telefono': 932238388,
+    'mail': 'maria@gmail.com',
+    'fecha_registro': new Date(2021,09,07),
+    'cliente_recomendado': ObjectId("61b229d16eb9e4e54c1a83d0"),
+  },
+  {
+    'nombre': 'Pepita',
+    'calle': 'Aragón 13',
+    'telefono': 932238388,
+    'mail': 'pepita@gmail.com',
+    'fecha_registro': new Date(2020,09,01),
+  }
+]);
+
+db.vendedores.drop();
+db.vendedores.insertMany([
+  {
+    'nombre': 'José',
+    'apellido': 'vendedor1'
+  },
+  {
+    'nombre': 'Pedro',
+    'apellido': 'vendedor2'
+  },
+  {
+    'nombre': 'Ester',
+    'apellido': 'vendedor3'
+  },
+]);
+
+db.ventas.drop();
+db.ventas.insertMany([
+  {
+    'numero_factura': 20211201,
+    'fecha_factura': new Date(2021,08,13),
+    'articulo_vendido': objectId("61b22b2f291e79eb331f7b90"),
+    'numero_cliente': objetId('61b22b2f291e79eb331f7b93'),
+    'numero_vendedor': objectId('61b22b2f291e79eb331f7b96'),
+  },
+  {
+    'numero_factura': 20211202,
+    'fecha_factura': new Date(2021,06,11),
+    'articulo_vendido': objectId("61b22b2f291e79eb331f7b91"),
+    'numero_cliente': objetId('61b22b2f291e79eb331f7b94'),
+    'numero_vendedor': objectId('61b22b2f291e79eb331f7b97'),
+  },
+  {
+    'numero_factura': 20211203,
+    'fecha_factura': new Date(2021,01,01),
+    'articulo_vendido': objectId("61b22b2f291e79eb331f7b92"),
+    'numero_cliente': objetId('61b22b2f291e79eb331f7b95'),
+    'numero_vendedor': objectId('61b22b2f291e79eb331f7b98'),
+  },
+]);
+
+
 
 
 
