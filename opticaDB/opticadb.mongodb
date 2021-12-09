@@ -1,26 +1,98 @@
+//seleccion de la DB
+db.opticaDB.drop();
 
 use('opticaDB');
-
+//eliminamos tabla para crearla de nuevo
 db.proveidor.drop();
-
-// Create a new collection.
+// Create a new collection (tables)
 db.proveidor.insertMany([
   {
-    'id': 1,
     'nom': 'proveidor1',
-    'adreça': 'C/aragó 321',
-    'telèfon': 933338382,
+    'adreça': 
+      {
+      'carrer': 'aragó',
+      'numero': 382,
+      'pis': 5,
+      'porta': 2,
+      'CP': 08080,
+      'Pais': 'Espanya',
+      },
+    'telefono': 93388283,
+    'fax': 938888838,
+    'NIF': '77777777-P',
   },
   {
-    'id': 2,
     'nom': 'proveidor2',
-    'adreça': 'C/valencia 321',
-    'telèfon': 933338382,
+    'adreça': 
+      {
+      'carrer': 'valencia',
+      'numero': 42,
+      'pis': 7,
+      'porta': 2,
+      'CP': 08770,
+      'Pais': 'Espanya',
+      },
+    'telefono': 932222222,
+    'fax': 932222222,
+    'NIF': '4134222-P',
   },
-   {
-    'id': 3,
+  {
     'nom': 'proveidor3',
-    'adreça': 'C/mallorca 21',
-    'telèfon': 933338382,
+    'adreça': 
+      {
+      'carrer': 'mallorca',
+      'numero': 24,
+      'pis': 8,
+      'porta': 2,
+      'CP': 08888,
+      'Pais': 'Espanya',
+      },
+    'telefono': 933546283,
+    'fax': 933435656,
+    'NIF': '22222222-P',
   }
-])
+]);
+
+db.gafas.drop();
+// Create a new collection (tables)
+db.gafas.insertMany([
+  {
+    'marca': 'ryban',
+    'graduacion': 
+      {
+        'izquierdo': 0.10,
+        'derecho': 0.8,      
+      },
+    'montura': 'flotante',
+    'color_montura': 'rojo',
+    'color_cristales': 'negros',
+    'precio': 88.90,
+  },
+    {
+    'marca': 'Carolina Herrera',
+    'graduacion': 
+      {
+        'izquierdo': 0.20,
+        'derecho': 0.9,      
+      },
+    'montura': 'pasta',
+    'color_montura': 'verde',
+    'color_cristales': 'azules',
+    'precio': 250.90,
+  },
+      {
+    'marca': 'Carrera',
+    'graduacion': 
+      {
+        'izquierdo': 0.30,
+        'derecho': 1.2,      
+      },
+    'montura': 'metalica',
+    'color_montura': 'negra',
+    'color_cristales': 'multicolor',
+    'precio': 199.90,
+  },
+]);
+
+
+
