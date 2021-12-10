@@ -1,0 +1,97 @@
+use('pizzeriaDB');
+db.dropDatabase();
+
+use('pizzeriaDB');
+
+db.pedidos.drop();
+db.pedidos.insertOne(
+  {
+    'date': new Date('2021-03-01'),
+    'recogida': 'tienda',
+    'tienda': 
+      [{
+        'idtienda': 'LaMaquinista',
+        'CP': 08007,
+        'Dirección': 'C/maqui 8',
+        'Provincia': 'Barcelona',
+        'Localidad': 'Badalona',
+      }],
+    'cliente': 
+      [{
+        '_id': '46458888P',
+        'nombre': 'miguell',
+        'apellido': 'ruiz',
+        'telefono': 93333333,
+        'dirección': 
+         [{
+            'calle': 'av.del carmen',
+            'numero': 3,
+            'CP': 08902,
+            'Provincia': 'Barcelona',
+            'Localidad': 'Badalona',
+         }],
+      }],
+    'order': 
+      [{
+        'Pizza': ['barbacoa', 'calzone', 'jalisco'],
+        'Bebida': ['Coca-cola', 'Fanta-Naranja'],
+        'Hamburguesa': ['778', 'CheeseBacon', 'DoubleBurger'],
+        'Precio_order': 57.90,
+      }],
+    'atendido_por':
+      [{
+        'Nombre_empleado': 'javi',
+        'Apellido': 'rodríguez',
+        'id_nif': '47888822P',
+        'telefono': 616222222,
+        'profesión': 'cocinero',
+      }],
+});
+
+db.pedidos.insertOne(
+  {
+    'date': new Date('2021-02-12'),
+    'recogida': 'domicilio',
+    'tienda': 
+      [{
+        'idtienda': 'Anec blau',
+        'CP': 08007,
+        'Dirección': 'C/anec 8',
+        'Provincia': 'Barcelona',
+        'Localidad': 'Hospitalet',
+      }],
+    'cliente': 
+      [{
+        '_id': '47882838J',
+        'nombre': 'Ana',
+        'apellido': 'Mena',
+        'telefono': 93333333,
+        'dirección': 
+         [{
+            'calle': 'av.del mar',
+            'numero': 3,
+            'CP': 08902,
+            'Provincia': 'Barcelona',
+            'Localidad': 'Hospitalet',
+         }],
+      }],
+    'order': 
+      [{
+        'Pizza': ['calzone'],
+        'Bebida': ['Coca-cola'],
+        'Precio_order': 12.90,
+      }],
+    'atendido_por':
+      [{
+        'Nombre_empleado': 'Oscar',
+        'Apellido': 'marquez',
+        'id_nif': '8438283J',
+        'telefono': 616222222,
+        'profesión': 'repartidor',
+      }],
+});
+
+
+
+
+
