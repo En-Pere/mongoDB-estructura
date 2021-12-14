@@ -25,11 +25,22 @@ db.restaurants.find({"cuisine": {$ne:"American", $ne: "American "}, "grades.scor
 // Escriu una consulta per trobar els restaurants quins no preparen cap cuisine de 'American' i va aconseguir un marcador més que 70 i localitzat en la longitud menys que -65.754168. Nota : Fes aquesta consulta sense utilitzar $and operador
 db.restaurants.find({"cuisine": {$ne:"American", $ne: "American "}, "grades.score": {$gt:70}, "address.coord": {$lt:-65.754168}}, {"cuisine": true, "address.coord": true, "grades.score": true});
 // Escriu una consulta per trobar els restaurants quins no preparen cap cuisine de 'American ' i va aconseguir un punt de grau 'A' no pertany a Brooklyn. S'ha de mostrar el document segons la cuisine en ordre descendent
-
+db.restaurants.find({"cuisine": {$ne:"American", $ne: "American "}, "grades.grade": {$eq:"A"}, "borough": {$ne:"Brooklyn"}},{"borough":true, "grades.grade": true, "cuisine": true}).sort({"cuisine":-1});
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants quin contenir 'Wil' com les tres primeres lletres en el seu nom
+db.restaurants.find({"name":/^Wil/},{"_id":false, "restaurant_id": true, "name": true, "borough": true, "cuisine": true});
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants quin contenir 'ces' com les últim tres lletres en el seu nom
+db.restaurants.find({"name":/ces$/},{"_id":false, "restaurant_id": true, "name": true, "borough": true, "cuisine": true});
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants quin contenir 'Reg' com tres lletres en algun lloc en el seu nom
+db.restaurants.find({"name":/Reg/},{"_id":false, "restaurant_id": true, "name": true, "borough": true, "cuisine": true});
 // Escriu una consulta per trobar els restaurants quins pertanyen al Bronx i va preparar qualsevol plat American o xinès
+db.restaurants.find({
+        $and: [
+            {"borough": {$eq: "Bronx"}},
+            {"cuisine": {$eq: "American "}}, 
+            {"cuisine": {$eq: "Chinese"}} 
+        ]}, 
+            {"_id":false, "borough": true, "name": true, "borough": true, "cuisine": true}
+        );
 //---------------17 aquí ----------------
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que pertanyen a Staten Island o Queens o Bronx  Brooklyn
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que no pertanyen a Staten Island o Queens o Bronx o Brooklyn
