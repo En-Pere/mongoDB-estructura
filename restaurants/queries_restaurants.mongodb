@@ -15,12 +15,17 @@ db.restaurants.find({},{"_id":false, "borough": "Bronx", "name":true}).limit(5);
 // Escriu una consulta per mostrar el pròxim 5 restaurants després de saltar els primers 5 del Bronx
 db.restaurants.find({},{"_id":false, "borough": "Bronx", "name":true}).skip(5).limit(5);
 // Escriu una consulta per trobar els restaurants que tenen un score de més de 90
-db.restaurants.find({},{"_id":false, "name":true, "grades.score":{$gt:["score", 90]}});
+db.restaurants.find({"grades.score": {$gt:90}}, {"name": true, "grades.score": true});
 // Escriu una consulta per trobar els restaurants que tenen un score de més que 80 però menys que 100
+db.restaurants.find({"grades.score": {$gt:80, $lt:100}},{"name":1, "grades.score": true});
 // Escriu una consulta per trobar els restaurants quins localitzen en valor de latitud menys que -95.754168
+db.restaurants.find({"address.coord": {$lt:-95.754168}},{"name":1, "address.coord": true});
 // Escriu una consulta de MongoDB per a trobar els restaurants que no preparen cap cuisine de 'American' i el seu puntaje de qualificació superior a 70 i latitud inferior a -65.754168
+db.restaurants.find({"cuisine": {$ne:"American", $ne: "American "}, "grades.score": {$gt:70}, "address.coord": {$lt:-65.754168}},{"name":true, "cuisine": true, "grades.score": true, "address.coord": true});
 // Escriu una consulta per trobar els restaurants quins no preparen cap cuisine de 'American' i va aconseguir un marcador més que 70 i localitzat en la longitud menys que -65.754168. Nota : Fes aquesta consulta sense utilitzar $and operador
+db.restaurants.find({"cuisine": {$ne:"American", $ne: "American "}, "grades.score": {$gt:70}, "address.coord": {$lt:-65.754168}}, {"cuisine": true, "address.coord": true, "grades.score": true});
 // Escriu una consulta per trobar els restaurants quins no preparen cap cuisine de 'American ' i va aconseguir un punt de grau 'A' no pertany a Brooklyn. S'ha de mostrar el document segons la cuisine en ordre descendent
+
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants quin contenir 'Wil' com les tres primeres lletres en el seu nom
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants quin contenir 'ces' com les últim tres lletres en el seu nom
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants quin contenir 'Reg' com tres lletres en algun lloc en el seu nom
