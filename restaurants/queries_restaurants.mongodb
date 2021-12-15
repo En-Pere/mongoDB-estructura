@@ -35,13 +35,17 @@ db.restaurants.find({"name":/Reg/},{"_id":false, "restaurant_id": true, "name": 
 // Escriu una consulta per trobar els restaurants quins pertanyen al Bronx i va preparar qualsevol plat American o xinès
 db.restaurants.find({$or: [ {"cuisine": {$eq: "American "}},{"cuisine": {$eq: "Chinese"}} ],  "borough": {$eq: "Bronx"} },{"_id":false, "borough": true, "name": true, "borough": true, "cuisine": true});
 
-
 //---------------17 aquí ----------------
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que pertanyen a Staten Island o Queens o Bronx  Brooklyn
+db.restaurants.find({$or: [{"borough": {$eq: "Bronx"}},{"borough": {$eq: "Staten Island"}},{"borough": {$eq: "Queens"}},{"borough": {$eq: "Brooklyn"}}]},{"_id":false, "restaurant_id": true, "name": true, "borough": true, "cuisine": true});
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que no pertanyen a Staten Island o Queens o Bronx o Brooklyn
+db.restaurants.find({$and: [{"borough": {$ne: "Bronx"}},{"borough": {$ne: "Staten Island"}},{"borough": {$ne: "Queens"}},{"borough": {$ne: "Brooklyn"}}]},{"_id":false, "restaurant_id": true, "name": true, "borough": true, "cuisine": true});
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que aconsegueixin un marcador quin no és més que 10
+db.restaurants.find({"grades.score": {$lt:10}} ,{"_id":false, "restaurant_id": true, "name": true, "borough": true, "cuisine": true});
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que preparen marisc ('seafood') excepte 'American' i 'Chinese' o el name del restaurant comença amb lletres 'Wil'
+
 // Escriu una consulta per trobar el restaurant_id, name, i grades per a aquells restaurants que aconsegueixin un grade de "A" i un score de 11 en dates d'estudi ISODate "2014-08-11T00:00:00Z"
+//---limit---
 // Escriu una consulta per trobar el restaurant_id, name i grades per a aquells restaurants on el 2n element de l'array de graus conté un grade de "A" i un score 9 amb un ISODate "2014-08-11T00:00:00Z"
 // Escriu una consulta per trobar el restaurant_id, name, adreça i ubicació geogràfica per a aquells restaurants on el segon element del array coord conté un valor quin és més que 42 i fins a 52
 // Escriu una consulta per organitzar el nom dels restaurants en ordre ascendent juntament amb totes les columnes
