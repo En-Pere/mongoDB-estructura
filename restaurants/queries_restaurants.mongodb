@@ -33,14 +33,9 @@ db.restaurants.find({"name":/ces$/},{"_id":false, "restaurant_id": true, "name":
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants quin contenir 'Reg' com tres lletres en algun lloc en el seu nom
 db.restaurants.find({"name":/Reg/},{"_id":false, "restaurant_id": true, "name": true, "borough": true, "cuisine": true});
 // Escriu una consulta per trobar els restaurants quins pertanyen al Bronx i va preparar qualsevol plat American o xinès
-db.restaurants.find({
-        $and: [
-            {"borough": {$eq: "Bronx"}},
-            {"cuisine": {$eq: "American "}}, 
-            {"cuisine": {$eq: "Chinese"}} 
-        ]}, 
-            {"_id":false, "borough": true, "name": true, "borough": true, "cuisine": true}
-        );
+db.restaurants.find({$or: [ {"cuisine": {$eq: "American "}},{"cuisine": {$eq: "Chinese"}} ],  "borough": {$eq: "Bronx"} },{"_id":false, "borough": true, "name": true, "borough": true, "cuisine": true});
+
+
 //---------------17 aquí ----------------
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que pertanyen a Staten Island o Queens o Bronx  Brooklyn
 // Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que no pertanyen a Staten Island o Queens o Bronx o Brooklyn
