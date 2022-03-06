@@ -3,6 +3,19 @@ db.dropDatabase();
 
 use('pizzeriaDB');
 
+db.products.drop();
+db.products.insertMany([
+  {PizzaId: 'p01', Type: '4estaciones', Ingredients:'mozzarela, mushrooms, ham'},
+  {PizzaId: 'p02', Type: 'tropical', Ingredients:'pinapple, mozzarela, olives'},
+  {PizzaId: 'p03', Type: '4cheese', Ingredients:'mozzarela, chedar, parmesano, bluecheese'},
+  {BebidaId: 'b01', Type: 'Coca-cola'},
+  {BebidaId: 'b02', Type: 'Fanta'},
+  {BebidaId: 'b03', Type: 'Agua'},
+  {HamburguesaId: 'h01', Type: 'Americana', Ingredients: 'burger, bacon, cheese'},
+  {HamburguesaId: 'h02', Type: '007', Ingredients: 'burger, chedar, mushrooms'},
+  {HamburguesaId: 'h03', Type: 'Vegana', Ingredients: 'tofu, lechuga, tomate'},
+])
+
 db.pedidos.drop();
 db.pedidos.insertOne(
   {
@@ -33,9 +46,9 @@ db.pedidos.insertOne(
       }],
     'order': 
       [{
-        'Pizza': ['barbacoa', 'calzone', 'jalisco'],
-        'Bebida': ['Coca-cola', 'Fanta-Naranja'],
-        'Hamburguesa': ['778', 'CheeseBacon', 'DoubleBurger'],
+        'PizzaId': ["p01", "p02"],
+        'BebidaId': ["b01", "b02"],
+        'HamburguesaId': ["h01"],
         'Precio_order': 57.90,
       }],
     'atendido_por':
@@ -77,8 +90,9 @@ db.pedidos.insertOne(
       }],
     'order': 
       [{
-        'Pizza': ['calzone'],
-        'Bebida': ['Coca-cola'],
+        "PizzaId": ['p03', 'p03', 'p03'],
+        "BebidaID": ['b01', 'b02', 'b02'],
+        "HamburguesaId": ['h01', 'h02'],
         'Precio_order': 12.90,
       }],
     'atendido_por':
@@ -90,8 +104,3 @@ db.pedidos.insertOne(
         'profesión': 'repartidor',
       }],
 });
-
-
-
-
-
